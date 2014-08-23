@@ -8,7 +8,7 @@ If you have something that you don't want to exist forever then Decay is what yo
 
 Currently text and image resources are supported.
 
-## How to use it?
+## How to use?
 
 ### DB
 Basic Decay model looks like {id: int, content: string, callCount: int} and is stored in Redis database in two hashsets for each resource: 
