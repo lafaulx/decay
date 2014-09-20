@@ -40,7 +40,18 @@ func (t *TextController) Get(w http.ResponseWriter, r *http.Request) {
 }
 
 func (t *TextController) Post(w http.ResponseWriter, r *http.Request) {
-	// TODO
+	decoder := json.NewDecoder(r.Body)
+	var mdl model.Dcy
+	decoder.Decode(&mdl)
+
+	mdl.Id = misc.GenerateID()
+	mdl.CallCount = 0
+
+	t.updateStruct(&mdl)
+
+	response, _ := json.Marshal(mdl)
+
+	w.Write(response)
 }
 
 func (t *TextController) Delete(w http.ResponseWriter, r *http.Request) {

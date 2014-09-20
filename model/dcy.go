@@ -1,7 +1,7 @@
 package model
 
 type Dcy struct {
-	Id        int
-	CallCount int64
-	Content   string
+	Id        int    `json:"id"`
+	CallCount int64  `json:"callCount"`
+	Content   string `json:"content"`
 }

@@ -1,6 +1,7 @@
 package misc
 
 import (
+	crand "crypto/rand"
 	"io"
 	"math"
 	"math/rand"
@@ -50,4 +51,10 @@ func CopyFile(dstName, srcName string) (written int64, err error) {
 	defer dst.Close()
 
 	return io.Copy(dst, src)
+}
+
+func GenerateID() int {
+	n, _ := crand.Prime(crand.Reader, 30)
+
+	return int(n.Uint64())
 }
